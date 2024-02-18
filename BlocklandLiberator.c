@@ -277,13 +277,10 @@ enum Error read_pe_sig(FILE *file)
 	else
 	{
 		uint32_t magic;
-		int num_read = fread(&magic, sizeof(magic), 1, file);
 
-		if (num_read != 1)
-		{
-			error = Read;
-		}
-		else if (magic != PE_MAGIC)
+		READ(magic);
+
+		if (magic != PE_MAGIC)
 		{
 			error = NoPeSig;
 		}
