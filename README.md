@@ -1,4 +1,4 @@
-# Blockland r2033 Liberator (v1.0)
+# Blockland r2033 Liberator (v1.1)
 
 This program patches out certain restrictions from a Blockland v21 r2033 executable.
 
