@@ -1,5 +1,5 @@
 /**
- * Blockland r2033 Liberator (v1.0)
+ * Blockland r2033 Liberator (v1.1)
  *
  * Copyright (C) 2024 Elletra
  *
@@ -25,7 +25,7 @@
 // ----------------------------------------------------------------
 
 #define BL_REVISION "2033"
-#define PROGRAM_VERSION "1.0"
+#define PROGRAM_VERSION "1.1"
 
 #define U8_SIZE (sizeof(uint8_t))
 #define U16_SIZE (sizeof(uint16_t))
@@ -461,8 +461,8 @@ enum Error patch_exe(const char *path, struct PEData *data)
 		WRITE_PATCH(0x4BAD78, 2, 0xEB, 0x22) // `GameConnection::setPlayerName()`
 		WRITE_PATCH(0x4BAE54, 2, 0xEB, 0x26) // `GameConnection::setBLID()`
 		WRITE_PATCH(0x4CA107, 2, 0x90, 0x90) // `secureCommandToClient()`
-		WRITE_PATCH(0x4CA277, 6, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90) // `secureCommandToAll()`
-		WRITE_PATCH(0x4CA447, 6, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90) // `secureCommandToAllExcept()`
+		WRITE_PATCH(0x4CA254, 2, 0xEB, 0x16) // `secureCommandToAll()`
+		WRITE_PATCH(0x4CA424, 2, 0xEB, 0x16) // `secureCommandToAllExcept()`
 
 		/* `ShapeBase::setShapeName()` */
 		WRITE_PATCH(0x4FB0C0, 1, 0x03) // Change argument check amount from 4 to 3
