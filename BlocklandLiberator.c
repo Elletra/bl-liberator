@@ -474,6 +474,11 @@ enum Error patch_exe(const char *path, struct PEData *data)
 		// Lets you change `fxDTSBrickData` fields after server load.
 		WRITE_PATCH(0x486591, 5, 0x83, 0xE0, 0xBF, 0x90, 0x90)
 
+		printf("Making transmitDataBlocks() work for fxDTSBrickData datablocks...\n");
+
+		// Makes it so that `transmitDataBlocks()` works for `fxDTSBrickData` datablocks too.
+		WRITE_PATCH(0x482D90, 12, 0xC6, 0x81, 0xEA, 0x01, 0x00, 0x00, 0x01, 0xE9, 0xD4, 0x79, 0xFC, 0xFF)
+
 		CLOSE_FILE()
 	}
 
