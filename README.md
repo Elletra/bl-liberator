@@ -29,6 +29,12 @@ You do not have to call `%player.setShapeName("My New Name", 8564862);`
 
 Instead, you can just call `%player.setShapeName("My New Name");`
 
+### Modifying `fxDTSBrickData` fields
+
+In vanilla Blockland, you cannot modify `fxDTSBrickData` fields after the first client joins your server. This is done by unsetting certain flags on the datablock in the `fxDTSBrickData::packData()` method. This program removes that restriction by setting those flags instead.
+
+This program also allows you to transmit those datablock changes to clients with `transmitDataBlocks()`. In vanilla Blockland, updates made to `fxDTSBricKData` datablocks cannot be retransmitted to clients due to the `fxDTSBrickData::onStaticModified()` method being overridden. This program fixes that by calling `SimDataBlock::onStaticModified()` in that method.
+
 ## Usage
 
 This program ***only*** works properly for Blockland v21 r2033! It ***does not*** check if the executable being patched is the correct version/revision or is even a copy of Blockland. ***Use at your own risk!***
