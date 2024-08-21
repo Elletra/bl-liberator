@@ -427,7 +427,7 @@ enum Error patch_exe(const char *path, struct PEData *data)
 		printf("Removing function definition restrictions...\n");
 
 		/* This is the fewest number of patches I could do without the game crashing. If I studied
-		the function more I could probably get it lower, but this is good enough... */
+		the function more maybe I could get it lower, but this is good enough... */
 
 		WRITE_PATCH(0x43035D, 1, 0xEB)
 		WRITE_PATCH(0x43037E, 1, 0xEB)
@@ -468,6 +468,11 @@ enum Error patch_exe(const char *path, struct PEData *data)
 		WRITE_PATCH(0x4FB0C0, 1, 0x03) // Change argument check amount from 4 to 3
 		WRITE_PATCH(0x4FB0C2, 1, 0x8C) // Change comparison from `==` to `>=`
 		WRITE_PATCH(0x4FB0C7, 2, 0xEB, 0x1E) // Remove password check
+
+		printf("Removing fxDTSBrickData field mutation restrictions...\n");
+
+		// Lets you change `fxDTSBrickData` fields after server load.
+		WRITE_PATCH(0x486591, 5, 0x83, 0xE0, 0xBF, 0x90, 0x90)
 
 		CLOSE_FILE()
 	}
