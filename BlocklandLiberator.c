@@ -1,5 +1,5 @@
 /**
- * Blockland r2033 Liberator (v1.1)
+ * Blockland r2033 Liberator (v1.2)
  *
  * Copyright (C) 2024 Elletra
  *
@@ -25,7 +25,7 @@
 // ----------------------------------------------------------------
 
 #define BL_REVISION "2033"
-#define PROGRAM_VERSION "1.1"
+#define PROGRAM_VERSION "1.2"
 
 #define U8_SIZE (sizeof(uint8_t))
 #define U16_SIZE (sizeof(uint16_t))
@@ -488,9 +488,9 @@ enum Error patch_exe(const char *path, struct PEData *data)
 void print_header()
 {
 	printf(
-		"**************************************\n"
-		"*  Blockland r" BL_REVISION " Liberator (v" PROGRAM_VERSION ")  *\n"
-		"**************************************\n\n"
+		"*************************************************\n"
+		"*  Blockland r" BL_REVISION " Liberator (v" PROGRAM_VERSION ") by Elletra  *\n"
+		"*************************************************\n\n"
 	);
 }
 
